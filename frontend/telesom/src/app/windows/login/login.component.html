@@ -1,26 +1,41 @@
 
 <div class="wrapper">
-    <mat-toolbar>
+    <mat-toolbar class="head-login">
         <span>Login</span>
     </mat-toolbar>
 
     <div class="card-login">
         <mat-card>
             <mat-card-content>
-                <form class="form-login">
-                    <mat-form-field>
-                    <mat-label>Login</mat-label>
-                    <input matInput placeholder="Login" type="text" value="">
+                
+                <form class="form-login" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="header-login">
+                        <p>Faça seu login</p>
+                    </div>
+
+                    <mat-form-field class="full-width">
+                        <mat-label>Login</mat-label>
+                        <input matInput type="text" value="" formControlName="email" placeholder="Ex. ana123@exemple.com">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                          </mat-error> -->
                     </mat-form-field>
+
                     <mat-form-field>
                         <mat-label>Senha</mat-label>
-                        <input matInput placeholder="Senha" type="password" value="" >
+                        <input matInput type="password" value="" formControlName="senha" placeholder="Senha">
                     </mat-form-field>
+                    
                 </form>
-              </mat-card-content>
-              <mat-card-actions class="card-button">
-                <button>Login</button>
-              </mat-card-actions>
+            </mat-card-content>
+            
+            <mat-card-actions class="card-button">
+                <button (click)="onSubmit()" [disabled]="form.invalid" class="b-login">Login</button>
+                <a href="">Cadastrar</a>
+                <a>Esqueci minha senha</a>
+            </mat-card-actions>
+
               
         </mat-card>
     </div>

@@ -10,12 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ValidatorsDirective } from './util/validators.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ValidatorsDirective,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
